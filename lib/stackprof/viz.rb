@@ -1,4 +1,6 @@
-require "stackprof/viz/version"
+# frozen_string_literal: true
+
+require 'stackprof/viz/version'
 
 module Stackprof
   module Viz
