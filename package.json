@@ -1,0 +1,17 @@
+{
+  "name": "stackprof-viz",
+  "version": "0.0.1",
+  "description": "StackProf visualizer with webUI",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yuta Nakamura",
+  "license": "MIT",
+  "volta": {
+    "node": "20.10.0"
+  }
+}
