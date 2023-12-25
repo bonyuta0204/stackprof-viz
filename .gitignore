@@ -8,6 +8,8 @@
 /tmp/
 
 vendor/bundle
+node_modules
+dist
 
 # rspec failure tracking
 .rspec_status
