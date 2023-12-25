@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'sinatra'
+require 'stackprof'
 require 'sinatra/reloader' if development?
 require_relative 'manifest'
 

@@ -30,4 +30,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency('sinatra', '~> 2.2')
   spec.add_dependency('sinatra-contrib', '~> 2.2')
+  spec.add_dependency('stackprof', '~> 0.2.7')
 end
