@@ -3,6 +3,7 @@
 require 'sinatra'
 require 'stackprof'
 require 'sinatra/reloader' if development?
+require 'sinatra/json'
 require_relative 'manifest'
 
 module StackProf
@@ -22,6 +23,16 @@ module StackProf
       get '/' do
         @manifest = Manifest.new.manifest
         erb :index
+      end
+
+      get '/api/dumps' do
+        dumps = Dir.glob('**/*.dump').map do |path|
+          {
+            path: path
+          }
+        end
+
+        json dumps
       end
     end
   end

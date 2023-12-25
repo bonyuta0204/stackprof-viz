@@ -1,11 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import axios from 'axios';
+
+type FileInfo = {
+  path: string;
+};
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [dumps, setDumps] = useState<FileInfo[]>([]);
 
-  const files = ['hoge', 'fuga', 'piyo'];
+  const loadFiles = async () => {
+    const loadedDumps = await axios.get<FileInfo[]>('api/dumps');
+    setDumps(loadedDumps.data);
+  };
+
+  useEffect(() => {
+    loadFiles();
+  }, []);
 
   return (
     <>
@@ -14,7 +26,7 @@ function App() {
           console.log('flamegraph selected');
         }}
       />
-      <Sidebar items={files} />
+      <Sidebar items={dumps.map((dump) => dump.path)} />
       <p>We are going to implement here</p>
     </>
   );
