@@ -1,13 +1,14 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 require_relative '../lib/stackprof/viz'
 
 options = {
-  :addr => "127.0.0.1",
-  :port => 9292
+  addr: '127.0.0.1',
+  port: 9292
 }
 
 server = StackProf::Viz::Server
+server.set :environment, :production
 
-Rack::Handler.pick(['thin', 'webrick']).run server.new, :Host => options[:addr], :Port => options[:port]
-
+Rack::Handler.pick(%w[thin webrick]).run server.new, Host: options[:addr], Port: options[:port]

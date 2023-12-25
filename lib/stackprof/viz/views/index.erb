@@ -1,4 +1,5 @@
 <head>
+    <% if settings.development? %>
     <script type="module">
         import RefreshRuntime from 'http://localhost:5173/@react-refresh'
         RefreshRuntime.injectIntoGlobalHook(window)
@@ -8,6 +9,10 @@
     </script>
     <script type="module" src="http://localhost:5173/@vite/client"></script>
     <script type="module" src="http://localhost:5173/src/main.tsx"></script>
+    <% else %>
+        <script type="module" src="/dist/<%= @manifest['src/main.tsx']['file'] %>"></script>
+        <link rel="stylesheet" href="/dist/<%= @manifest['src/main.tsx']['css'][0] %>" />
+    <% end %>
 </head>
 
 <body>
