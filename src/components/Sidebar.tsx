@@ -14,7 +14,7 @@ const Sidebar = ({ items, onClickItem }: SidebarProps) => {
           <div
             key={item}
             className="hover:bg-gray-100 cursor-pointer"
-            onClick={() => onClickItem && onClickItem(item)}
+            onClick={() => onClickItem?.(item)}
           >
             <span className="text-sm">{item}</span>
           </div>

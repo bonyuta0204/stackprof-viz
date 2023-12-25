@@ -11,7 +11,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "biome lint src/",
+    "format": "biome format src/ --write && biome lint src/ --apply",
     "preview": "vite preview"
   },
   "author": "Yuta Nakamura",
@@ -20,6 +21,7 @@
     "node": "20.10.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.4.1",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",
