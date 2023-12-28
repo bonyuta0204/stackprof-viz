@@ -34,6 +34,12 @@ module StackProf
 
         json dumps
       end
+
+      get '/api/dumps/*' do
+        file_path = params[:splat].first
+        reporter = StackProf::Report.from_file(file_path)
+        json reporter.data
+      end
     end
   end
 end
